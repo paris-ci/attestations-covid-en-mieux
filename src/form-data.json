@@ -6,7 +6,7 @@
       "contentType": "firstname",
       "label": "Prénom",
       "autocomplete": "given-name",
-      "placeholder": "Camille"
+      "placeholder": "Emmanuel"
     },
     {
       "key": "lastname",
@@ -14,7 +14,7 @@
       "contentType": "lastname",
       "label": "Nom",
       "autocomplete": "family-name",
-      "placeholder": "Dupont"
+      "placeholder": "Macaron"
     },
     {
       "key": "birthday",
@@ -103,19 +103,19 @@
       "items": [
         {
           "code": "travail",
-          "label": "Déplacements à destination ou en provenance du lieu d'exercice ou de recherche d'une activité professionnelle et déplacements professionnels ne pouvant être différés <a class=\"footnote\" id=\"footnote2\" href=\"#footnote2\">[2]</a> ;"
+          "label": "🏭 Déplacements à destination ou en provenance du lieu d'exercice ou de recherche d'une activité professionnelle et déplacements professionnels ne pouvant être différés <a class=\"footnote\" id=\"footnote2\" href=\"#footnote2\">[2]</a> ;"
         },
         {
           "code": "achats",
-          "label": "Déplacements pour effectuer des achats de fournitures nécessaires à l'activité professionnelle, des achats de première nécessité <a class=\"footnote\" id=\"footnote3\" href=\"#footnote3\">[3]</a> dans des établissements dont les activités demeurent autorisées (liste sur gouvernement.fr) et des livraisons à domicile ;"
+          "label": "🥗 Déplacements pour effectuer des achats de fournitures nécessaires à l'activité professionnelle, des achats de première nécessité <a class=\"footnote\" id=\"footnote3\" href=\"#footnote3\">[3]</a> dans des établissements dont les activités demeurent autorisées (liste sur gouvernement.fr) et des livraisons à domicile ;"
         },
         {
           "code": "sante",
-          "label": "Déplacements pour effectuer des consultations, examens et soins ne pouvant être assurés à distance et pour l’achat de médicaments ;"
+          "label": "🚑 Déplacements pour effectuer des consultations, examens et soins ne pouvant être assurés à distance et pour l’achat de médicaments ;"
         },
         {
           "code": "famille",
-          "label": "Déplacements pour motif familial impérieux, pour l'assistance aux personnes vulnérables et précaires, pour la garde d'enfants, ainsi que pour les déménagements ;"
+          "label": "👪 Déplacements pour motif familial impérieux, pour l'assistance aux personnes vulnérables et précaires, pour la garde d'enfants, ainsi que pour les déménagements ;"
         },
         {
           "code": "handicap",
@@ -123,7 +123,7 @@
         },
         {
           "code": "sport_animaux",
-          "label": "Déplacements brefs, dans la limite d'une heure quotidienne et dans un rayon maximal d'un kilomètre autour du domicile, liés soit à l'activité physique individuelle des personnes, à l'exclusion de toute pratique sportive collective et de toute proximité avec d'autres personnes, soit à la promenade avec les seules personnes regroupées dans un même domicile, soit aux besoins des animaux de compagnie ."
+          "label": "🐶 Déplacements brefs, dans la limite d'une heure quotidienne et dans un rayon maximal d'un kilomètre autour du domicile, liés soit à l'activité physique individuelle des personnes, à l'exclusion de toute pratique sportive collective et de toute proximité avec d'autres personnes, soit à la promenade avec les seules personnes regroupées dans un même domicile, soit aux besoins des animaux de compagnie ."
         },
         {
           "code": "convocation",
@@ -131,11 +131,11 @@
         },
         {
           "code": "missions",
-          "label": " Participation à des missions d'intérêt général sur demande de l'autorité administrative ;"
+          "label": "Participation à des missions d'intérêt général sur demande de l'autorité administrative ;"
         },
         {
           "code": "enfants",
-          "label": "Déplacements à destination ou en provenance des établissements ou services d'accueil de mineurs, d'enseignement ou de formation pour adultes mentionnés aux articles 32 à 35 du décret n° 2020-1310 du 29 octobre 2020 ou du lieu d'organisation d'un examen ou d'un concours ;"
+          "label": "👩‍🏫 Déplacements à destination ou en provenance des établissements ou services d'accueil de mineurs, d'enseignement ou de formation pour adultes mentionnés aux articles 32 à 35 du décret n° 2020-1310 du 29 octobre 2020 ou du lieu d'organisation d'un examen ou d'un concours ;"
         }
       ]
     }
