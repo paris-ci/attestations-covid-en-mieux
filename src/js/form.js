@@ -28,7 +28,7 @@ const createFormGroup = ({
   min,
   maxlength,
   minlength,
-  name,
+  name, // here the 'key' value
   pattern,
   placeholder = '',
   type = 'text',
@@ -96,7 +96,6 @@ const createReasonField = (reasonData) => {
     value: reasonData.code,
   }
   const inputReason = createElement('input', inputReasonAttrs)
-
   const labelAttrs = { innerHTML: reasonData.label, className: 'form-checkbox-label', for: id }
   const label = createElement('label', labelAttrs)
 
@@ -114,7 +113,7 @@ const createReasonFieldset = (reasonsData) => {
   const appendToFieldset = appendTo(fieldset)
 
   const legendAttrs = {
-    className: 'legend titre-3 ',
+    className: 'legend titre-3',
     innerHTML: 'Choisissez un motif de déplacement',
   }
   const legend = createElement('legend', legendAttrs)
@@ -123,9 +122,7 @@ const createReasonFieldset = (reasonsData) => {
   const textAlert = createElement('p', textAlertAttrs)
 
   const textSubscribeReasonAttrs = {
-    innerHTML: `certifie que mon déplacement est lié au motif suivant (cocher la case) autorisé en application des 
-    mesures générales nécessaires pour faire face à l'épidémie de Covid19 dans le cadre de l'état 
-    d'urgence sanitaire <a class="footnote" id="footnote1" href="#footnote1">[1]</a>&nbsp;:`,
+    innerHTML: 'certifie que mon déplacement est lié au motif suivant (cocher la case) autorisé par le décret n°2020-1310 du 29 octobre 2020 prescrivant les mesures générales nécessaires pour faire face à l\'épidémie de Covid19 dans le cadre de l\'état d\'urgence sanitaire  <a class="footnote" href="#footnote1">[1]</a>&nbsp;:',
   }
 
   const textSubscribeReason = createElement('p', textSubscribeReasonAttrs)

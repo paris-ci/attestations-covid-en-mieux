@@ -1,8 +1,12 @@
 import { $, $$, downloadBlob } from './dom-utils'
-import { addSlash, getFormattedDate } from './util'
+import { addSlash, getFormattedDate, setParam, getParam } from './util'
 import pdfBase from '../certificate.pdf'
 import { generatePdf } from './pdf-util'
 import { setPreviousFormValue } from './localstorage'
+
+const formData = require('../form-data')
+
+let params = new URLSearchParams(window.location.hash.substr(1))
 
 const conditions = {
   '#field-firstname': {
@@ -129,6 +133,7 @@ export function prepareInputs (formInputs, reasonInputs, reasonFieldset, reasonA
     }
 
     const profile = getProfile(formInputs)
+    // console.log(getProfile(formInputs), reasons)
 
     ;[
       'address',
@@ -169,4 +174,61 @@ export function prepareForm () {
   const releaseDateInput = $('#field-datesortie')
   setReleaseDateTime(releaseDateInput)
   prepareInputs(formInputs, reasonInputs, reasonFieldset, reasonAlert, snackbar)
+}
+/**
+ * Modifie les entrées du formulaire en fonction des paramètres spécifiés sous forme d'URI fragments
+ */
+export function followParams () {
+  // Remplit les entrées du formulaire
+  formData.flat(1)
+    .filter(field => field.key !== 'reason')
+    .filter(field => !field.isHidden)
+    .forEach(data => {
+      const name = data.alias || data.key
+      const field = $('#field-' + data.key)
+      if (params.has(name)) field.value = params.get(name)
+    })
+
+  // Coche les raisons
+  const reasonsObj = formData.flat(1).find(field => field.key === 'reason')
+  reasonsObj.items.forEach(data => {
+    const name = data.alias || data.code
+    const field = $('#checkbox-' + data.code)
+    if (params.get(reasonsObj.alias || 'raisons' || reasonsObj.key)?.split(',').includes(name) && !field.checked) field.click()
+  })
+
+  // Génère automatiquement le PDF si besoin
+  if (params.has('auto')) $('#generate-btn').click()
+}
+
+export function listenToInputChanges () {
+  // Champs
+  formData.flat(1)
+    .filter(field => field.key !== 'reason')
+    .filter(field => !field.isHidden)
+    .forEach(data => {
+      const name = data.alias || data.key
+      const input = document.getElementById('field-' + data.key)
+      input.addEventListener('input', (e) => {
+        setParam(name, e.target.value)
+        params = new URLSearchParams(window.location.hash.substr(1))
+      })
+    })
+
+  // Raisons
+  const reasonsObj = formData.flat(1).find(field => field.key === 'reason')
+  reasonsObj.items.forEach(data => {
+    const name = data.alias || data.code
+    const checkbox = $('#checkbox-' + data.code)
+    checkbox.addEventListener('click', (e) => {
+      let reasons = getParam(reasonsObj.alias || 'raisons')?.split(',')
+      if (!reasons) return setParam(reasonsObj.alias || 'raisons', name)
+      if (checkbox.checked && !reasons.includes(name)) {
+        reasons.push(name)
+      } else if (!checkbox.checked && reasons.includes(name)) {
+        reasons = reasons.filter(elem => elem !== name)
+      }
+      setParam(reasonsObj.alias || 'raisons', reasons.toString())
+    })
+  })
 }
