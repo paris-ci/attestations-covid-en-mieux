@@ -14,13 +14,9 @@ const createTitle = () => {
 }
 // createElement('div', { className: 'form-group' })
 
-const setCurrentTime = input => {
+const getCurrentTime = () => {
   const date = new Date();
-  const hour = date.getHours().toString().padStart(2, '0');
-  const minutes = date.getMinutes().toString().padStart(2, '0');
-  const time = hour + ':' + minutes;
-
-  input.value = time;
+  return date.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
 }
 
 const createFormGroup = ({
@@ -67,7 +63,7 @@ const createFormGroup = ({
   const input = createElement('input', inputAttrs)
 
   if (name === 'heuresortie') {
-    setCurrentTime(input)
+    input.value = getCurrentTime()
   }
 
   const validityAttrs = {
